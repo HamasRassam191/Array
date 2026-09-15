@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>درجات الطلاب</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #222;
+        }
+
+        .students {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .student {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .grade {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>درجات الطلاب</h1>
+
+    <div class="students" id="students"></div>
+
+
+    <script>
+
+        // مصفوفة تحتوي على Objects
+        let students = [
+
+            {
+                name: "أحمد",
+                grade: 85
+            },
+
+            {
+                name: "محمد",
+                grade: 90
+            },
+
+            {
+                name: "علي",
+                grade: 78
+            },
+
+            {
+                name: "خالد",
+                grade: 95
+            },
+
+            {
+                name: "سعيد",
+                grade: 88
+            }
+
+        ];
+
+
+        // الحصول على العنصر الموجود في HTML
+        let studentsContainer = document.getElementById("students");
+
+
+        // المرور على جميع الطلاب
+        students.forEach(function(student) {
+
+            // إنشاء عنصر جديد
+            let div = document.createElement("div");
+
+            // إضافة class
+            div.className = "student";
+
+            // وضع اسم الطالب والدرجة
+            div.innerHTML = `
+                <span class="name">
+                    اسم الطالب: ${student.name}
+                </span>
+
+                <span class="grade">
+                    الدرجة: ${student.grade}
+                </span>
+            `;
+
+            // إضافة الطالب إلى الصفحة
+            studentsContainer.appendChild(div);
+
+        });
+
+    </script>
+
+</body>
+</html>
+
